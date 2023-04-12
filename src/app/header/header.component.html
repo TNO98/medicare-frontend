@@ -1,4 +1,26 @@
 <mat-toolbar color="primary">
-    <div class="logo"><img src="../../assets/logo.png" height="64px" alt=""></div>
+    <div class="logo"><a routerLink=""><img src="../../assets/logo.png" height="64px" alt=""></a></div>
+    <div class="search d-none d-md-flex">
+           <input  placeholder="Search for medicine & wellness products…" width="" type="text"/>
+           <div class="search-icon ">
+                <mat-icon>search</mat-icon>
+           </div>
+    </div>    
+    <div class="header-btn">
+        <ul class="cart">
+            <li><a href="#">
+                <!-- <mat-icon matBadge="2" matBadgeColor="accent">shopping_cart</mat-icon> -->
+                <span matBadge="0" matBadgeColor="warn"><mat-icon>shopping_cart</mat-icon></span>
+            </a></li>
+        </ul>
+        <ul class="profile-login">
+            <li>
+                <a href="#"><mat-icon>account_circle</mat-icon></a>
+            </li>
+            <li>
+                <a routerLink="/login">Sign in/Sign up</a>
+            </li>
+        </ul>
+    </div>
 </mat-toolbar>
 
