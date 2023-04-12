@@ -1,0 +1,14 @@
+mat-card{
+    width: 60vw;
+    padding: 3rem;
+}
+mat-form-field{
+    width: 100%;
+}
+
+.card-register{
+    margin: 3% 20%;
+}
+.form{
+    padding: 10%;
+}

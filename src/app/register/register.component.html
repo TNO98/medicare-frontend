@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="card-register">
+    <mat-card>
+      <div class="row">
+        <div class="col-md-6 d-none d-sm-block">
+          <img src="../../assets/login-asset.png" alt="" class="img-fluid" />
+        </div>
+
+        <div class="col-md-6">
+          <div class="container form">
+            <div class="heading">
+              <h3>Sign Up !</h3>
+              &nbsp;
+            </div>
+
+            <form action="">
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Full name</mat-label>
+                  <input type="text" matInput placeholder="James Gosling" required/>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput placeholder="james@gmail.com" required/>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput placeholder="password" required/>
+                </mat-form-field>
+              </p>
+              <button type="submit" mat-flat-button color="primary" style="width: 100%; height: 50px;">Register</button>
+              <button routerLink="/login" mat-flat-button  style="width: 100%; height: 50px;"><mat-icon>arrow_back</mat-icon>Back to Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
