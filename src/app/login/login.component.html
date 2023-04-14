@@ -13,21 +13,35 @@
                 &nbsp;
               </div>
   
-              <form action="">
+              <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
                 
                 <p>
                   <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput placeholder="james@gmail.com" required/>
+                    <input
+                    name="email"
+                    id="email"
+                    ngModel 
+                    type="email" 
+                    matInput 
+                    placeholder="james@gmail.com" 
+                    required/>
                   </mat-form-field>
                 </p>
                 <p>
                   <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input type="password" matInput placeholder="password" required/>
+                    <input
+                    ngModel
+                    name="password"
+                    id="password" 
+                    type="password" 
+                    matInput 
+                    placeholder="password" 
+                    required/>
                   </mat-form-field>
                 </p>
-                <button type="submit" mat-flat-button color="primary" style="width: 100%; height: 50px;">Register</button>
+                <button type="submit" mat-flat-button color="primary" style="width: 100%; height: 50px;">Login</button>
                 &nbsp;
                 <button routerLink="/register" mat-flat-button style="width: 100%; height: 50px;"> New Customer? Register Here</button>
                 

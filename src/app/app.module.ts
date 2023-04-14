@@ -8,6 +8,13 @@ import { MyMatComponentsModule } from './my-mat-components/my-mat-components.mod
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { SidebarComponent } from './admin/sidebar/sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -17,12 +24,19 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
+    SidebarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MyMatComponentsModule
+    MyMatComponentsModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

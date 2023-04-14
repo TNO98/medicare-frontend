@@ -9,6 +9,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -22,7 +24,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatFormFieldModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule,
+    MatDividerModule
   ]
 })
 export class MyMatComponentsModule { }
