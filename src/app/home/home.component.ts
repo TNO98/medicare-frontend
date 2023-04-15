@@ -11,7 +11,7 @@ import baseUrl from '../services/helper';
 })
 export class HomeComponent implements OnInit{
   medicines:any=null;
-  baseUrl:string=baseUrl;
+  baseUrl:string=baseUrl+"/api/medicine/image/";
 
   constructor(private medicineService:MedicineService,router:Router){}
   

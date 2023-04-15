@@ -46,7 +46,9 @@ mat-toolbar input {
     margin-left:15px ;
 }
 
-mat-toolbar .secondary-toolbar  a{
+
+mat-toolbar .secondary-btn a{
     color: white;
     text-decoration: none;
+    padding-left: 5px;
 }

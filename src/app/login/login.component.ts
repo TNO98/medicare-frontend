@@ -18,13 +18,15 @@ export class LoginComponent {
   login(loginForm :NgForm){
     this.loginService.login(loginForm.value).subscribe(
       {
-        next:(responce:any)=>{
-          this.loginService.setToken(responce.token)
-          this.loginService.setUser(responce.userDto)
-          let role=this.loginService.getUser().userDto.role;
-          if(role==='ADMIN') this.router.navigate(['admin']);
+        next:(responce:any)=>{  
+          this.loginService.setToken(responce.token);
+          this.loginService.setUser(JSON.stringify(responce.userDto));
+          let role:string=responce.userDto.role;
+          if(role=='ADMIN') this.router.navigate(['admin']);
           else this.router.navigate(['']);
-          console.log(responce.userDto.role)
+          console.log(localStorage.getItem('token'));
+          console.log(localStorage.getItem('user'));
+
         },
         error: (error)=> console.error(error),
         complete:()=>{
