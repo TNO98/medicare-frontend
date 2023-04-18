@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <div class="logo"><a routerLink=""><img src="../../assets/logo.png" height="64px" alt=""></a></div>
-    <div class="search d-none d-md-flex">
+    <div *ngIf="!isAdmin" class="search d-none d-md-flex">
            <input  placeholder="Search for medicine & wellness products…" width="" type="text"/>
            <div class="search-icon ">
                 <mat-icon>search</mat-icon>
@@ -18,22 +18,23 @@
                 <a href="#"><mat-icon>account_circle</mat-icon></a>
             </li>
             <li>
-                <a routerLink="/login">Sign in/Sign up</a>
+                <a *ngIf="!loggedIn" routerLink="/login">Sign in/Sign up</a>
+                <a *ngIf="loggedIn" routerLink="">{{user.firstName}},</a>
+                
+            </li>
+            <li *ngIf="loggedIn">
+                <a><mat-icon>logout</mat-icon></a>
+            </li>
+            <li>
+                <a (click)="logout()" *ngIf="loggedIn" routerLink=""> logout</a>
             </li>
         </ul>
     </div>
 </mat-toolbar>
-<mat-toolbar color="primary">
+<mat-toolbar *ngIf="!isAdmin" color="primary">
     <div class="container text-center">
         <ul class="secondary-btn">
-            <li><a mat-button href="">Diabetes</a></li>
-            <li><a mat-button href="">Skin Care</a></li>
-            <li><a mat-button href="">fitness</a></li>
-            <li><a mat-button href="">Eyecare</a></li>
-            <li><a mat-button href="">Veterinary</a></li>
-            <li><a mat-button href="">Treatment</a></li>
-            <li><a mat-button href="">Sexual Wellness</a></li>
-
+            <li *ngFor="let cat of categories"><a mat-button routerLink="">{{cat.name}}</a></li>
         </ul>
     </div>
 </mat-toolbar>

@@ -23,7 +23,7 @@ export class RegisterComponent {
           this._snackbar.open('Registration Successful!! Login now','x',{
             horizontalPosition:'end',
             verticalPosition: 'top',
-            duration:3000
+            duration:2000
           })
           this.router.navigate(['/login'])}
       }

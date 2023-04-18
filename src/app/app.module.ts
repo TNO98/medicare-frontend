@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { authInterceptorProviders } from './services/auth-interceptor.interceptor';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -27,6 +30,8 @@ import { HomeComponent } from './home/home.component';
     DashboardComponent,
     SidebarComponent,
     HomeComponent,
+    AdminHeaderComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { HomeComponent } from './home/home.component';
     RouterModule
 
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

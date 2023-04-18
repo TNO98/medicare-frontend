@@ -2,6 +2,7 @@ mat-toolbar{
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    position: relative;
 }
 mat-toolbar ul{
     display: inline-flex;
