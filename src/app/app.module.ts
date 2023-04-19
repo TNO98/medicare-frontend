@@ -17,6 +17,11 @@ import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { authInterceptorProviders } from './services/auth-interceptor.interceptor';
 import { ProfileComponent } from './profile/profile.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
+import { AddCategoryComponent } from './admin/add-category/add-category.component';
+import { ToastrModule } from 'ngx-toastr';
+import { MedicineComponent } from './admin/medicine/medicine.component';
+import { AddMedicineComponent } from './admin/add-medicine/add-medicine.component';
 
 
 
@@ -32,6 +37,10 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     AdminHeaderComponent,
     ProfileComponent,
+    CategoriesComponent,
+    AddCategoryComponent,
+    MedicineComponent,
+    AddMedicineComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,8 @@ import { ProfileComponent } from './profile/profile.component';
     MyMatComponentsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot(),
 
   ],
   providers: [authInterceptorProviders],

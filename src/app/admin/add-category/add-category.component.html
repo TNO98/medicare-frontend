@@ -1,0 +1,46 @@
+<mat-card>
+  <div class="container ">
+    <mat-card-header><h3>Add a medicine category</h3></mat-card-header>
+    <form #addCategoryForm="ngForm" (ngSubmit)="addCategory(addCategoryForm)" class=" text-center mt-5 p-3">
+        <p>
+          <mat-form-field appearance="outline" style="width: 60%;">
+            <mat-label>Category Name</mat-label>
+            <input
+              ngModel
+              name="name"
+              id="name"
+              type="text"
+              matInput
+              placeholder="Ex. Diabetes"
+              required
+             
+            />
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline" style="width: 60%;">
+              <mat-label>Description</mat-label>
+              <textarea
+                ngModel
+                name="description"
+                id="description"
+                type="text"
+                matInput
+                placeholder="Ex. Some Description about the category"
+                required
+                rows="12"
+              ></textarea>
+            </mat-form-field>
+          </p>
+          <button
+                type="submit"
+                mat-flat-button
+                color="primary"
+                style="width: 60%; height: 50px"
+                [disabled]="!addCategoryForm.valid"
+              >
+                Add Category
+              </button>
+      </form>
+  </div>
+</mat-card>

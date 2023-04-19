@@ -2,6 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './helper';
 
+export interface MedicineDto{
+  name:string;
+  brand:string;
+  price:number;
+  category:{
+    id:number;
+  }
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +26,10 @@ export class MedicineService {
 
   public getMedicines(){
     return this.http.get(`${baseUrl}/api/medicine/`)
+  }
+
+  public saveMedicine(medicineDto:MedicineDto,image:File){
+    return this.http.post(`${baseUrl}/api/medicine/`,{medicineDto,image});
   }
   
 }

@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginServiceService } from '../services/login-service.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {ToastrService} from 'ngx-toastr'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginServiceService,
     private router: Router,
-    private _snackbar: MatSnackBar
+    private _toaster:ToastrService
   ) {}
   ngOnInit(): void {
    if(this.loginService.isLoggedIn())this.router.navigate(['']);
@@ -34,19 +34,14 @@ export class LoginComponent implements OnInit {
         console.log(localStorage.getItem('user'));
       },
       error: (error) => {
-        this._snackbar.open('Invalid Details, try again!!', 'x', {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2000,
-        });
+        this._toaster.error('Invalid details','login failed',{
+          timeOut:3000,
+          
+        })
         console.error(error);
       },
       complete: () => {
-        this._snackbar.open('Login Success', 'x', {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2000,
-        });
+        this._toaster.success('Enjoy!!','Login Success!!')
       },
     });
   }

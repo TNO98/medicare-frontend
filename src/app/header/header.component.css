@@ -46,6 +46,11 @@ mat-toolbar input {
 .header-btn ul{
     margin-left:15px ;
 }
+.admin-link a{
+    color: white;
+    text-decoration: none;
+    padding-left: 5px;
+}
 
 
 mat-toolbar .secondary-btn a{

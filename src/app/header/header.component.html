@@ -1,41 +1,56 @@
 <mat-toolbar color="primary">
-    <div class="logo"><a routerLink=""><img src="../../assets/logo.png" height="64px" alt=""></a></div>
-    <div *ngIf="!isAdmin" class="search d-none d-md-flex">
-           <input  placeholder="Search for medicine & wellness products…" width="" type="text"/>
-           <div class="search-icon ">
-                <mat-icon>search</mat-icon>
-           </div>
-    </div>    
-    <div class="header-btn">
-        <ul class="cart">
-            <li><a href="#">
-                <!-- <mat-icon matBadge="2" matBadgeColor="accent">shopping_cart</mat-icon> -->
-                <span matBadge="0" matBadgeColor="warn"><mat-icon>shopping_cart</mat-icon></span>
-            </a></li>
-        </ul>
-        <ul class="profile-login">
-            <li>
-                <a href="#"><mat-icon>account_circle</mat-icon></a>
-            </li>
-            <li>
-                <a *ngIf="!loggedIn" routerLink="/login">Sign in/Sign up</a>
-                <a *ngIf="loggedIn" routerLink="">{{user.firstName}},</a>
-                
-            </li>
-            <li *ngIf="loggedIn">
-                <a><mat-icon>logout</mat-icon></a>
-            </li>
-            <li>
-                <a (click)="logout()" *ngIf="loggedIn" routerLink=""> logout</a>
-            </li>
-        </ul>
+  <div class="logo">
+    <a routerLink=""
+      ><img src="../../assets/logo.png" height="64px" alt=""
+    /></a>
+  </div>
+  <div *ngIf="isAdmin" class="admin-link">
+    <a routerLink="admin/profileS"><mat-icon>dashboard</mat-icon></a><a routerLink="admin/profile">Admin DashBoard</a>
+  </div>
+  <div *ngIf="!isAdmin" class="search d-none d-md-flex">
+    <input
+      placeholder="Search for medicine & wellness products…"
+      width=""
+      type="text"
+    />
+    <div class="search-icon">
+      <mat-icon>search</mat-icon>
     </div>
+  </div>
+  <div class="header-btn">
+    <ul class="cart">
+      <li>
+        <a href="#">
+          <!-- <mat-icon matBadge="2" matBadgeColor="accent">shopping_cart</mat-icon> -->
+          <span matBadge="0" matBadgeColor="warn"
+            ><mat-icon>shopping_cart</mat-icon></span
+          >
+        </a>
+      </li>
+    </ul>
+    <ul class="profile-login">
+      <li>
+        <a href="#"><mat-icon>account_circle</mat-icon></a>
+      </li>
+      <li>
+        <a *ngIf="!loggedIn" routerLink="/login">Sign in/Sign up</a>
+        <a *ngIf="loggedIn" routerLink="">{{ user.firstName }},</a>
+      </li>
+      <li *ngIf="loggedIn">
+        <a><mat-icon>logout</mat-icon></a>
+      </li>
+      <li>
+        <a (click)="logout()" *ngIf="loggedIn" routerLink=""> logout</a>
+      </li>
+    </ul>
+  </div>
 </mat-toolbar>
 <mat-toolbar *ngIf="!isAdmin" color="primary">
-    <div class="container text-center">
-        <ul class="secondary-btn">
-            <li *ngFor="let cat of categories"><a mat-button routerLink="">{{cat.name}}</a></li>
-        </ul>
-    </div>
+  <div class="container text-center">
+    <ul class="secondary-btn">
+      <li *ngFor="let cat of categories">
+        <a mat-button routerLink="">{{ cat.name }}</a>
+      </li>
+    </ul>
+  </div>
 </mat-toolbar>
-
