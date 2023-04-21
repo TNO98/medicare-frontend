@@ -29,7 +29,10 @@ export class MedicineService {
   }
 
   public saveMedicine(medicineDto:MedicineDto,image:File){
-    return this.http.post(`${baseUrl}/api/medicine/`,{medicineDto,image});
+    let formData= new FormData();
+    formData.append('medicineDto', JSON.stringify(medicineDto));
+    formData.append('image', image);
+    return this.http.post(`${baseUrl}/api/medicine/`,formData);
   }
   
 }

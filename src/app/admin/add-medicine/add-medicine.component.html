@@ -1,30 +1,96 @@
 <mat-card>
-  <div class="container p-5" >
-    <div class="row">
-      <div class="col-md-6">
-        <h3>Add Medicine</h3>
-        <form action="" >
+  <div class="container p-5">
+    <form #addMedicineForm="ngForm" (ngSubmit)="addMedicine(addMedicineForm)">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Add Medicine</h3>
+
           <p>
-            <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-form-field appearance="outline" style="width: 100%">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Name" required />
+              <input
+                matInput
+                placeholder="Name"
+                name="name"
+                id="name"
+                required
+                ngModel
+              />
             </mat-form-field>
           </p>
           <p>
-            <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-form-field appearance="outline" style="width: 100%">
               <mat-label>Brand Name</mat-label>
-              <input matInput placeholder="Brand Name" required/>
+              <input
+                matInput
+                placeholder="Brand Name"
+                name="brand"
+                id="brand"
+                ngModel
+                required
+              />
             </mat-form-field>
           </p>
+
           <p>
-            <mat-form-field appearance="outline" style="width: 100%;">
-              <mat-label>Price</mat-label>
-              <input matInput placeholder="Price" type="number" required />
+            <mat-form-field appearance="outline" style="width: 100%">
+              <mat-label>Category</mat-label>
+              <mat-select name="id" id="id" ngModel required>
+                <mat-option *ngFor="let cat of categories" [value]="cat.id">
+                  {{ cat.name }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </p>
-        </form>
+
+          <p>
+            <mat-form-field appearance="outline" style="width: 100%">
+              <mat-label>Price</mat-label>
+              <input
+                name="price"
+                id="price"
+                matInput
+                placeholder="Price"
+                type="number"
+                ngModel
+                required
+              />
+            </mat-form-field>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <div class="drop-zone">
+            <div class="dropzone-text">
+              <img [src]="url" height="200px" />
+              <!-- drag and drop your file or
+              <a (click)="selectFile.click()">browse</a>
+              a file -->
+            </div>
+          </div>
+          <input
+            ngModel
+            name="image"
+            id="image"
+            placeholder="Medicine image"
+            type="file"
+            class="form-control mt-2"
+            required
+            (change)="onFileSelected($event)"
+          />
+        </div>
       </div>
-      <div class="col-md-6"></div>
-    </div>
+      <div class="row">
+        <div class="submit-btn">
+          <button
+            mat-flat-button
+            type="submit"
+            [disabled]="!addMedicineForm.valid"
+            color="primary"
+          >
+            Add Medicine
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </mat-card>

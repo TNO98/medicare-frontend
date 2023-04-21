@@ -11,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { SidebarComponent } from './admin/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
@@ -22,6 +22,7 @@ import { AddCategoryComponent } from './admin/add-category/add-category.componen
 import { ToastrModule } from 'ngx-toastr';
 import { MedicineComponent } from './admin/medicine/medicine.component';
 import { AddMedicineComponent } from './admin/add-medicine/add-medicine.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -41,6 +42,7 @@ import { AddMedicineComponent } from './admin/add-medicine/add-medicine.componen
     AddCategoryComponent,
     MedicineComponent,
     AddMedicineComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { AddMedicineComponent } from './admin/add-medicine/add-medicine.componen
     FormsModule,
     RouterModule,
     ToastrModule.forRoot(),
-
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
