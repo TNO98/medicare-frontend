@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import { MedicineService } from 'src/app/services/medicine.service';
 import baseUrl from '../../services/helper';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-medicine',
@@ -10,7 +11,7 @@ import baseUrl from '../../services/helper';
 export class MedicineComponent implements OnInit {
   medicines:any=null;
   baseUrl:string=baseUrl+"/api/medicine/image/";
-  constructor(private medicineService:MedicineService){}
+  constructor(private medicineService:MedicineService, private toast:ToastrService){}
   ngOnInit(): void {
     this.medicineService.getMedicines().subscribe(
       {
@@ -20,6 +21,16 @@ export class MedicineComponent implements OnInit {
         error:(err)=>console.error(err)
       }
     )
+  }
+  deleteMed(id:number){
+    this.medicineService.deleteMedicine(id).subscribe(
+      {
+        next:(res)=>this.toast.success(
+          'Medicine Deleted successfully!!!', 'deleted'
+        ),
+        error:(err)=> this.toast.error('Something went wrong', 'couldnt be deleted')
+      }
+    );
   }
 
   

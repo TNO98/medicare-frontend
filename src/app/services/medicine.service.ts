@@ -18,7 +18,8 @@ export class MedicineService {
 
   requestHeader=new HttpHeaders(
     {
-      "No-Auth" : "True"
+      "No-Auth" : "True",
+      "Access-Control-Allow-Origin":"*"
     }
   )
 
@@ -33,6 +34,10 @@ export class MedicineService {
     formData.append('medicineDto', JSON.stringify(medicineDto));
     formData.append('image', image);
     return this.http.post(`${baseUrl}/api/medicine/`,formData);
+  }
+
+  public deleteMedicine(id:number){
+    return this.http.delete(`${baseUrl}/api/medicine/${id}`)
   }
   
 }

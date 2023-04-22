@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { MedicineService } from 'src/app/services/medicine.service';
-import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 export class medicineDto {
   constructor(
@@ -29,6 +29,7 @@ export interface Category {
   styleUrls: ['./add-medicine.component.css'],
 })
 export class AddMedicineComponent implements OnInit {
+  @ViewChild('addMedicineForm') form:NgForm;
   categories: any;
   url: string;
   cat= new category(0);
@@ -78,6 +79,9 @@ export class AddMedicineComponent implements OnInit {
     this.medService.saveMedicine(this.medicineDto,this.image).subscribe(
       {
         next: (data)=> {
+          this.form.reset();
+          this.url='';
+
           this.toast.success(
             'success','medicine added successfully',{
               timeOut:2000,

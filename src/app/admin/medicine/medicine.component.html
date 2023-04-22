@@ -22,7 +22,7 @@
         </mat-card-content>
         <mat-card-actions>
           <button color="accent" mat-stroked-button>UPDATE</button>
-          <button color="warn" class ="ms-2" mat-stroked-button>DELETE</button>
+          <button color="warn" class ="ms-2" mat-stroked-button (click)="deleteMed(medicine.id)">DELETE</button>
         </mat-card-actions>
       </mat-card>
     </div>
