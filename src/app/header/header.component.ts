@@ -59,4 +59,8 @@ export class HeaderComponent implements OnInit {
     this.login.logout();
     window.location.reload();
   }
+
+  setCategory(category: string) {
+    this.category.setCategory(category);
+  }
 }

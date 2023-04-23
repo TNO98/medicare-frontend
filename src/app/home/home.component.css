@@ -1,15 +1,17 @@
 .medicine {
-  /* background: url(https://www.netmeds.com/images/cms/section/images/1680549470_1678453094_limited_time.png)
-      no-repeat left bottom / 240px,
-    linear-gradient(
-      to bottom,
-      rgb(255 255 255 / -2%),
-      rgba(255, 255, 255, 0.4) 78%
-    ),
-    linear-gradient(180deg, #24aeb1, #24aeb1); */
-
-    /* background-color: #08c77424; */
     align-items: center;
 }
+mat-card-title, mat-card-subtitle{
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+  max-height: 2.4em;
+  line-height: 1.2em;
+
+}
+
 
 

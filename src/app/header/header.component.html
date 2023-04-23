@@ -48,8 +48,11 @@
 <mat-toolbar *ngIf="!isAdmin" color="primary">
   <div class="container text-center">
     <ul class="secondary-btn">
+      <li>
+        <a mat-button (click)="setCategory('all')">All Products</a>
+      </li>
       <li *ngFor="let cat of categories">
-        <a mat-button routerLink="">{{ cat.name }}</a>
+        <a mat-button routerLink="" (click)="setCategory(cat.name)">{{ cat.name }}</a>
       </li>
     </ul>
   </div>

@@ -1,0 +1,10 @@
+mat-card-title, mat-card-subtitle{
+
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    max-height: 2.4em;
+    line-height: 1.2em;
+  
+  }
