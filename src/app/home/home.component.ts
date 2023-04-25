@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     this.searchService.searchKeyword$.subscribe((keyword: string) => {
       if (keyword!='') this.searchText = keyword;
       else this.searchText='';
-      console.log(this.searchText);
+      //console.log(this.searchText);
     });
 
     this.medicineService.getMedicines().subscribe({

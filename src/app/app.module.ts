@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { authInterceptorProviders } from './services/auth-interceptor.interceptor';
 import { ProfileComponent } from './profile/profile.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
@@ -36,7 +35,6 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardComponent,
     SidebarComponent,
     HomeComponent,
-    AdminHeaderComponent,
     ProfileComponent,
     CategoriesComponent,
     AddCategoryComponent,

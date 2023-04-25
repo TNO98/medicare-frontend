@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MedicineService } from 'src/app/services/medicine.service';
 import baseUrl from '../../services/helper';
 import { ToastrService } from 'ngx-toastr';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-medicine',
@@ -11,12 +12,20 @@ import { ToastrService } from 'ngx-toastr';
 export class MedicineComponent implements OnInit {
   medicines: any = null;
   baseUrl: string = baseUrl + '/api/medicine/image/';
+  searchText: string;
+
   constructor(
     private medicineService: MedicineService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private searchService: SearchService
   ) {}
   ngOnInit(): void {
     this.getAllmedicines();
+    this.searchService.searchKeyword$.subscribe((keyword: string) => {
+      if (keyword!='') this.searchText = keyword;
+      else this.searchText='';
+      //console.log(this.searchText);
+    });
   }
 
   getAllmedicines() {

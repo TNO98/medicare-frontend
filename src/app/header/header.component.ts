@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { LoginServiceService } from '../services/login-service.service';
 import { CategoryService } from '../services/category.service';
 import { SearchService } from '../services/search.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   public user: any = null;
   public categories: any = null;
   public isAdmin = false;
-
+  currentUrl:string;
   public searchTerm: string = '';
 
   @Output()
@@ -28,7 +29,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private login: LoginServiceService,
     private category: CategoryService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -63,6 +65,15 @@ export class HeaderComponent implements OnInit {
       next: (category) => (this.categories = category),
       error: (error) => console.error(error),
     });
+
+    // subscribing to router events to check if admin/product page 
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+      }
+    })
+
   }
 
   logout() {
@@ -72,5 +83,11 @@ export class HeaderComponent implements OnInit {
 
   setCategory(category: string) {
     this.category.setCategory(category);
+  }
+
+  //check if admin product page 
+
+  isAdminMedicinePage(){
+    return this.currentUrl==='/admin/medicines';
   }
 }

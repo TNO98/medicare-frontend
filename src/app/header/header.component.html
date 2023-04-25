@@ -4,10 +4,10 @@
       ><img src="../../assets/logo.png" height="64px" alt=""
     /></a>
   </div>
-  <div *ngIf="isAdmin" class="admin-link">
-    <a routerLink="admin/profileS"><mat-icon>dashboard</mat-icon></a><a routerLink="admin/profile">Admin DashBoard</a>
+  <div *ngIf="isAdmin && !isAdminMedicinePage()" class="admin-link">
+    <a routerLink="admin/profile"><mat-icon>dashboard</mat-icon></a><a routerLink="admin/profile">Admin DashBoard</a>
   </div>
-  <div *ngIf="!isAdmin" class="search d-none d-md-flex">
+  <div *ngIf="!isAdmin || isAdminMedicinePage()" class="search d-none d-md-flex">
     <input
       placeholder="Search for medicine & wellness products…"
       width=""
