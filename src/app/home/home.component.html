@@ -1,29 +1,31 @@
 <div class="container medicine">
-  <div class="row" >
-    <div class="col-md-3" *ngFor="let medicine of filteredMedicine">
-      <mat-card class="m-3 p-3 text-center" >
-        <img
-          src={{baseUrl+medicine.imageName}}
-          [alt]="medicine.name"
-          style="max-height: 120px; max-width: 120px;"
-          class="mx-auto"  
-        />
+  <div class="row">
+    <ng-container *ngFor="let medicine of filteredMedicine">
+      <div class="col-md-3" *ngIf="searchText===''|| medicine.name.toLowerCase().includes(searchText)">
+        <mat-card class="m-3 p-3 text-center">
+          <img
+            src="{{ baseUrl + medicine.imageName }}"
+            [alt]="medicine.name"
+            style="max-height: 120px; max-width: 120px"
+            class="mx-auto"
+          />
 
-        <mat-card-title>{{ medicine.name }}</mat-card-title>
-        <mat-card-subtitle>{{ medicine.brand }}</mat-card-subtitle>
+          <mat-card-title>{{ medicine.name }}</mat-card-title>
+          <mat-card-subtitle>{{ medicine.brand }}</mat-card-subtitle>
 
-        <br />
+          <br />
 
-        <p>
-          <b><span>&#8377;</span> {{ medicine.price }}</b>
-        </p>
+          <p>
+            <b><span>&#8377;</span> {{ medicine.price }}</b>
+          </p>
 
-        <mat-card-actions>
-          <button mat-flat-button color="primary" style="width: 100%">
-            Add to Cart
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  
+          <mat-card-actions>
+            <button mat-flat-button color="primary" style="width: 100%">
+              Add to Cart
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
 </div>

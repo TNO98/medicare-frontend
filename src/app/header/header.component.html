@@ -12,6 +12,8 @@
       placeholder="Search for medicine & wellness products…"
       width=""
       type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchTermChange()"
     />
     <div class="search-icon">
       <mat-icon>search</mat-icon>
