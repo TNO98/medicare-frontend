@@ -21,14 +21,19 @@ export class CategoriesComponent implements OnInit {
   }
 
   deleteCategory(id: number) {
-    this.service.deleteCategory(id).subscribe({
-      next: () => {
-        alert('Category deleted successfully');
-        this.getAllCtegories();
-      },
-      error: (error) => console.log(error),
-    });
+    if (
+      confirm(
+        'Are you sure ? All your medicines in this category will be automatically deleted'
+      )
+    )
+      this.service.deleteCategory(id).subscribe({
+        next: () => {
+          alert('Category deleted successfully');
+          this.getAllCtegories();
+        },
+        error: (error) => console.log(error),
+      });
 
-    console.log(id);
+    //console.log(id);
   }
 }
