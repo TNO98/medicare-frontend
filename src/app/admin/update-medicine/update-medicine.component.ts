@@ -50,8 +50,8 @@ export class UpdateMedicineComponent implements OnInit {
       };
     }
   }
-// there is a bug while in databinding of category
-// category can not be updated right now ..will fix later
+  // there is a bug while in databinding of category
+  // category can not be updated right now ..will fix later
   updateMedicine() {
     this.medicineService
       .updateMedicine(this.medicineId, this.medicine, this.image)
@@ -60,6 +60,7 @@ export class UpdateMedicineComponent implements OnInit {
           this.toast.success(
             'medicine updated successfully',
             'Update Success!!'
+            
           );
           console.log(data);
           console.log(this.medicine);

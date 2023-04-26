@@ -35,7 +35,7 @@
             <p>
               <mat-form-field appearance="outline" style="width: 100%">
                 <mat-label>Category</mat-label>
-                <mat-select name="id" id="id" ngModel required>
+                <mat-select name="id" id="id" [(ngModel)]="medicine.category.id" required>
                   <mat-option *ngFor="let cat of categories" [value]="cat.id">
                     {{ cat.name }}
                   </mat-option>
