@@ -37,6 +37,7 @@ export class MedicineComponent implements OnInit {
     });
   }
   deleteMed(id: number) {
+    if(confirm("Are your sure to delete this medicine??"))
     this.medicineService.deleteMedicine(id).subscribe({
       next: (res) => {
         this.toast.success('Medicine Deleted successfully!!!', 'deleted');
