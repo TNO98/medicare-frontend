@@ -39,5 +39,16 @@ export class MedicineService {
   public deleteMedicine(id:number){
     return this.http.delete(`${baseUrl}/api/medicine/${id}`)
   }
+
+  public findMedicineById(id:number){
+    return this.http.get(`${baseUrl}/api/medicine/${id}`)
+  }
+
+  public updateMedicine(id:number, updatedMedicine:any, image:File){
+    let formData = new FormData();
+    formData.append('updatedMedicine',JSON.stringify(updatedMedicine));
+    formData.append('image',image);
+    return this.http.put(`${baseUrl}/api/medicine/${id}`,formData);
+  }
   
 }

@@ -1,14 +1,14 @@
 <mat-card>
-   <div>
+  <div>
     <mat-list>
-        <div mat-subheader>All Categories</div>
-        <mat-list-item *ngFor="let cat of categories" >
-            <mat-icon matListItemIcon>list</mat-icon>
-            <div matListItemTitle>{{cat.name}}</div>
-            <div matListItemLine>{{cat.description}}</div>
-            <mat-divider></mat-divider>
-          </mat-list-item>
-       
+      <div mat-subheader>All Categories</div>
+      <mat-list-item *ngFor="let cat of categories" class="my-1">
+        <mat-icon matListItemIcon>list</mat-icon>
+        <div matListItemTitle>{{ cat.name }}</div>
+        <div matListItemLine>{{ cat.description }}</div>
+        <button mat-button color="warn" (click)="deleteCategory(cat.id)">delete</button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
     </mat-list>
-   </div>
+  </div>
 </mat-card>

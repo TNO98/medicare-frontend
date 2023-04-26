@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row">
     <ng-container *ngFor="let medicine of medicines">
-      <div class="col-md-3" *ngIf="searchText===''|| medicine.name.toLowerCase().includes(searchText)">
+      <div
+        class="col-md-3"
+        *ngIf="
+          searchText === '' || medicine.name.toLowerCase().includes(searchText)
+        "
+      >
         <mat-card class="mt-3">
           <mat-card-header>
             <mat-card-title-group>
@@ -16,7 +21,13 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button color="accent" mat-stroked-button>UPDATE</button>
+            <button
+              color="accent"
+              mat-stroked-button
+              [routerLink]="'update-medicine/'+ medicine.id"
+            >
+              UPDATE
+            </button>
             <button
               color="warn"
               class="ms-2"

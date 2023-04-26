@@ -11,6 +11,7 @@ import { CategoriesComponent } from './admin/categories/categories.component';
 import { AddCategoryComponent } from './admin/add-category/add-category.component';
 import { MedicineComponent } from './admin/medicine/medicine.component';
 import { AddMedicineComponent } from './admin/add-medicine/add-medicine.component';
+import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path:'add-medicine',
         component:AddMedicineComponent
+      },
+      {
+        path:'medicines/update-medicine/:id',
+        component:UpdateMedicineComponent
       }
     ]
   }
