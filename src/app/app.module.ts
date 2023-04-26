@@ -23,7 +23,6 @@ import { MedicineComponent } from './admin/medicine/medicine.component';
 import { AddMedicineComponent } from './admin/add-medicine/add-medicine.component';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine.component';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -56,9 +55,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     MatSelectModule,
-    SweetAlert2Module.forRoot(),
-    SweetAlert2Module,
-    SweetAlert2Module.forChild(),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
