@@ -3,6 +3,7 @@ import { LoginServiceService } from '../services/login-service.service';
 import { CategoryService } from '../services/category.service';
 import { SearchService } from '../services/search.service';
 import { NavigationEnd, Router } from '@angular/router';
+import { EcommerceService } from '../services/ecommerce.service';
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,9 @@ export class HeaderComponent implements OnInit {
   public user: any = null;
   public categories: any = null;
   public isAdmin = false;
-  currentUrl:string;
+  currentUrl: string;
   public searchTerm: string = '';
+  cartItemNum: number;
 
   @Output()
   public searchTermChange: EventEmitter<string> = new EventEmitter<string>();
@@ -23,14 +25,14 @@ export class HeaderComponent implements OnInit {
   onSearchTermChange() {
     this.searchTermChange.emit(this.searchTerm);
     this.searchService.setSearchKeyword(this.searchTerm);
-    
   }
 
   constructor(
     private login: LoginServiceService,
     private category: CategoryService,
     private searchService: SearchService,
-    private router:Router
+    private router: Router,
+    private ecom: EcommerceService
   ) {}
 
   ngOnInit() {
@@ -66,14 +68,28 @@ export class HeaderComponent implements OnInit {
       error: (error) => console.error(error),
     });
 
-    // subscribing to router events to check if admin/product page 
-
+    // subscribing to router events to check if admin/product page
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
-    })
+    });
+    this.ecom.cartItems
+      .asObservable()
+      .subscribe(
+        (itemsInCart) => (this.cartItemNum = itemsInCart.orderItemDtos.length)
+      );
+  //   //loading cartdata from local storage
+  //  this.cartItemNum = this.ecom.getCart().orderItemDtos.length;
+  }
 
+  //check if admin product page
+  isAdminMedicinePage() {
+    return this.currentUrl === '/admin/medicines';
+  }
+
+  isProductPage() {
+    return this.currentUrl === '/';
   }
 
   logout() {
@@ -83,11 +99,5 @@ export class HeaderComponent implements OnInit {
 
   setCategory(category: string) {
     this.category.setCategory(category);
-  }
-
-  //check if admin product page 
-
-  isAdminMedicinePage(){
-    return this.currentUrl==='/admin/medicines';
   }
 }

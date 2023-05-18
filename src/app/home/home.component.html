@@ -1,8 +1,13 @@
-<div class="container medicine">
+<div class="container-fluid medicine">
   <div class="row">
     <ng-container *ngFor="let medicine of filteredMedicine">
-      <div class="col-md-3" *ngIf="searchText===''|| medicine.name.toLowerCase().includes(searchText)">
-        <mat-card class="m-3 p-3 text-center">
+      <div
+        class="col-md-2"
+        *ngIf="
+          searchText === '' || medicine.name.toLowerCase().includes(searchText)
+        "
+      >
+        <mat-card class="m-3 p-3 text-center product-card">
           <img
             src="{{ baseUrl + medicine.imageName }}"
             [alt]="medicine.name"
@@ -16,13 +21,39 @@
           <br />
 
           <p>
-            <b><span>&#8377;</span> {{ medicine.price }}</b>
+            <b><span>&#8377;</span>{{ medicine.price }}</b>
           </p>
+          <!-- <p>
+              <input
+                type="number"
+                name="quantity"
+                id="quantity"
+                matInput
+                style="width: 20%"
+                min="1"
+                max="3"
+                [(ngModel)]="selectedOrderItem.quantity"
+                
+              />
+            </p> -->
 
           <mat-card-actions>
-            <button mat-flat-button color="primary" style="width: 100%">
+            <button
+              mat-flat-button
+              color="primary"
+              style="width: 100%"
+              (click)="addToCart(medicine)"
+            >
               Add to Cart
             </button>
+            <!-- <button
+                *ngIf="isPresentInCart"
+                mat-flat-button
+                color="warn"
+                style="width: 100%"
+              >
+                Remove from Cart
+              </button> -->
           </mat-card-actions>
         </mat-card>
       </div>

@@ -23,6 +23,9 @@ import { MedicineComponent } from './admin/medicine/medicine.component';
 import { AddMedicineComponent } from './admin/add-medicine/add-medicine.component';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine.component';
+import { CartComponent } from './ecommerce/cart/cart.component';
+import { PaymentComponent } from './ecommerce/payment/payment.component';
+import { OrderPlacedComponent } from './ecommerce/order-placed/order-placed.component';
 
 
 
@@ -42,6 +45,9 @@ import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine
     MedicineComponent,
     AddMedicineComponent,
     UpdateMedicineComponent,
+    CartComponent,
+    PaymentComponent,
+    OrderPlacedComponent,
 
   ],
   imports: [

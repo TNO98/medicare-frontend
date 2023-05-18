@@ -94,6 +94,7 @@ export class LoginServiceService {
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+   // localStorage.removeItem('usermodel')
   }
 
   //get current user role

@@ -5,9 +5,13 @@
     /></a>
   </div>
   <div *ngIf="isAdmin && !isAdminMedicinePage()" class="admin-link">
-    <a routerLink="admin/profile"><mat-icon>dashboard</mat-icon></a><a routerLink="admin/profile">Admin DashBoard</a>
+    <a routerLink="admin/profile"><mat-icon>dashboard</mat-icon></a
+    ><a routerLink="admin/profile">Admin DashBoard</a>
   </div>
-  <div *ngIf="!isAdmin || isAdminMedicinePage()" class="search d-none d-md-flex">
+  <div
+    *ngIf="!isAdmin || isAdminMedicinePage()"
+    class="search d-none d-md-flex"
+  >
     <input
       placeholder="Search for medicine & wellness products…"
       width=""
@@ -22,9 +26,11 @@
   <div class="header-btn">
     <ul class="cart">
       <li>
-        <a href="#">
-          <!-- <mat-icon matBadge="2" matBadgeColor="accent">shopping_cart</mat-icon> -->
-          <span matBadge="0" matBadgeColor="warn"
+        <a routerLink="cart">
+          <span
+            [matBadge]="cartItemNum"
+            [matBadgeHidden]="!cartItemNum"
+            matBadgeColor="warn"
             ><mat-icon>shopping_cart</mat-icon></span
           >
         </a>
@@ -47,14 +53,16 @@
     </ul>
   </div>
 </mat-toolbar>
-<mat-toolbar *ngIf="!isAdmin" color="primary">
+<mat-toolbar *ngIf="!isAdmin && isProductPage()" color="primary">
   <div class="container text-center">
     <ul class="secondary-btn">
       <li>
         <a mat-button (click)="setCategory('all')">All Products</a>
       </li>
       <li *ngFor="let cat of categories">
-        <a mat-button routerLink="" (click)="setCategory(cat.name)">{{ cat.name }}</a>
+        <a mat-button routerLink="" (click)="setCategory(cat.name)">{{
+          cat.name
+        }}</a>
       </li>
     </ul>
   </div>
