@@ -1,0 +1,14 @@
+.mdc-data-table__header-cell{
+    font-weight: normal;
+    color: #7D858C;
+    text-align: center;
+}
+td{
+    max-width: 300px;
+}
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Adjust the height according to your needs */
+    z-index: 999; /* Ensure a higher z-index for the sticky element */
+  }
