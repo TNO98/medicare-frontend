@@ -30,18 +30,20 @@ export class LoginComponent implements OnInit {
         } else {
           this.loginService.logout();
         }
-        console.log(localStorage.getItem('token'));
-        console.log(localStorage.getItem('user'));
+        this._toaster.success('Enjoy!!','Login Success!!',{
+          timeOut:1000,
+          
+        })
       },
       error: (error) => {
         this._toaster.error('Invalid details','login failed',{
-          timeOut:3000,
+          timeOut:1000,
           
         })
         console.error(error);
       },
       complete: () => {
-        this._toaster.success('Enjoy!!','Login Success!!')
+        
       },
     });
   }

@@ -4,12 +4,17 @@ import { OrderItemsList } from '../model/order-items-list.model';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { OrderItem } from '../model/order-item.model';
 import { ToastrService } from 'ngx-toastr';
+import { OrderForm } from '../model/order-form.model';
+import baseUrl from './helper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EcommerceService {
+
   cartItems = new BehaviorSubject<OrderItemsList>(this.getCart());
+  orderDataSubject= new BehaviorSubject<any>(this.getOrderData());
+  orderData$=this.orderDataSubject.asObservable();
 
   constructor(private http: HttpClient, private toast: ToastrService) {}
 
@@ -62,7 +67,14 @@ export class EcommerceService {
     this.saveCart(cartData);
     this.cartItems.next(this.getCart());
   }
-
+  //remove all items from cart
+  public clearCart(){
+    if(this.getCart()){
+      localStorage.removeItem('cart');
+      this.cartItems.next(this.getCart());
+    }
+  }
+  //reduce item qty
   public reduceQuantity(orderItem:OrderItem){
     const orderItemDtos = [...this.cartItems.value.orderItemDtos];
     const itemsInCart = orderItemDtos.find(
@@ -71,5 +83,22 @@ export class EcommerceService {
     if(itemsInCart) itemsInCart.quantity -= 1;
     this.saveCart({ orderItemDtos });
     this.cartItems.next(this.getCart());
+  }
+
+  public placeOrder(OrderForm:OrderForm):any{
+    return this.http.post(`${baseUrl}/api/order/`,OrderForm)
+  }
+
+  // saving successfully placed  order response data 
+  public saveOrderData(orderData:any){
+    this.orderDataSubject.next(orderData);
+    localStorage.setItem('orderData', JSON.stringify(orderData));
+  }
+  //getting order data
+  public getOrderData():any{
+    const emptyOrderData:any=null;
+    const orderData:any= JSON.parse(localStorage.getItem('orderData'));
+    if(orderData) return orderData;
+    else return emptyOrderData;
   }
 }

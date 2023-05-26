@@ -1,1 +1,54 @@
-<p>order-placed works!</p>
+<div class="container mt-5">
+  <mat-card class="p-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="card-title">Order Confirmation</h4>
+        <p class="card-text">Thank you for your order! Here are the details:</p>
+      </div>
+      <div class="col-md-6 ">
+        <div class="text-end">
+          <button (click)="printOrderDetails()" mat-flat-button color="primary" style="color: white">
+            Print Order Details
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <h5>Order ID # <span>{{orderData.orderResponse.id}}</span></h5>
+    <p>Date: <span id="currentDate">{{orderData.orderResponse.orderDate}}</span></p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of orderData.orderResponse.orderItems">
+        <!-- start of medicineItem loop -->
+        <tr>
+          <td>{{item.medicine.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.totalPrice.toFixed(2)}}</td>
+        </tr>
+        <!-- end of medicine item loop -->
+      </tbody>
+    </table>
+    <p class="text-end me-5" style="font-weight: 500;">TOTAL PRICE :<span> &#8377;</span> {{orderData.orderResponse.totalOrderPrice.toFixed(2)}}</p>
+    <hr />
+    <p class="text-center">Your order will be shipped to:</p>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <ul class="list-group">
+          <li class="list-group-item">{{orderData.address.fname+ ' '+ orderData.address.lname}}</li>
+          <li class="list-group-item">{{orderData.address.address}}</li>
+          <li class="list-group-item">{{orderData.address.city}}</li>
+          <li class="list-group-item">{{orderData.address.state+'-' +orderData.address.pincode}}</li>
+        </ul>
+      </div>
+    </div>
+  </mat-card>
+</div>
+
+

@@ -13,6 +13,8 @@ import { AddMedicineComponent } from './admin/add-medicine/add-medicine.componen
 import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine.component';
 import { CartComponent } from './ecommerce/cart/cart.component';
 import { PaymentComponent } from './ecommerce/payment/payment.component';
+import { PaymentGuardGuard } from './guard/payment-guard.guard';
+import { OrderPlacedComponent } from './ecommerce/order-placed/order-placed.component';
 
 const routes: Routes = [
   {
@@ -66,7 +68,13 @@ const routes: Routes = [
   },
   {
     path:'payment',
-    component: PaymentComponent
+    component: PaymentComponent,
+    canActivate: [PaymentGuardGuard]
+  },
+  {
+    path:'order-placed',
+    component: OrderPlacedComponent,
+    canActivate:[PaymentGuardGuard]
   }
 ];
 

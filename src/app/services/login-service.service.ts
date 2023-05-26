@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import baseUrl from './helper';
 import{tap} from 'rxjs/operators'
 import{Subject } from 'rxjs'
+import { userDto } from '../model/userDto';
 
 export interface userModel{
   token: string;
@@ -77,7 +78,7 @@ export class LoginServiceService {
   }
 
   // get current user from local storage
-  public getUser(): any {
+  public getUser(): any|userDto {
     let userStr = localStorage.getItem('user');
     if (userStr != null) return JSON.parse(userStr);
     else {

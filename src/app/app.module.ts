@@ -26,6 +26,7 @@ import { UpdateMedicineComponent } from './admin/update-medicine/update-medicine
 import { CartComponent } from './ecommerce/cart/cart.component';
 import { PaymentComponent } from './ecommerce/payment/payment.component';
 import { OrderPlacedComponent } from './ecommerce/order-placed/order-placed.component';
+import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 
 
@@ -61,6 +62,10 @@ import { OrderPlacedComponent } from './ecommerce/order-placed/order-placed.comp
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     MatSelectModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    })
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

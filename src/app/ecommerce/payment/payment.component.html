@@ -1,1 +1,211 @@
-<p>payment works!</p>
+<div class="container p-5">
+  <mat-card>
+    <form #paymentForm="ngForm" (ngSubmit)="pay(paymentForm)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="address-details p-5">
+            <h4 class="mb-4">Shipping Address</h4>
+            <div class="row">
+              <!-- first name  -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>First Name</mat-label>
+                  <input
+                    name="fname"
+                    ngModel
+                    matInput
+                    placeholder="First Name"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <!-- last name  -->
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>Last Name</mat-label>
+                  <input
+                    name="lname"
+                    ngModel
+                    matInput
+                    type="text"
+                    placeholder="Last Name"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="mobile">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Mobile Number</mat-label>
+                <input
+                  name="mobile"
+                  id="mobile"
+                  ngModel
+                  matInput
+                  type="number"
+                  placeholder="Mobile Number"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="Address">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Address</mat-label>
+                <input
+                  name="address"
+                  ngModel
+                  matInput
+                  type="text"
+                  placeholder="village, block no. or house no. etc"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="City">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>City or District</mat-label>
+                <input
+                  name="city"
+                  ngModel
+                  matInput
+                  type="text"
+                  placeholder="City or District"
+                  required
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <!-- pincode  -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>Pin Code</mat-label>
+                  <input
+                    name="pincode"
+                    ngModel
+                    matInput
+                    placeholder="Pin Code"
+                    type="number"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <!-- States  -->
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>State</mat-label>
+                  <mat-select name="state" ngModel required>
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let state of states" [value]="state">{{
+                      state
+                    }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 mt-5 pt-3">
+          <div class="vertical-divider"></div>
+        </div>
+        <!-- payment details column -->
+        <div class="col-md-5">
+          <div class="payment-details p-5 ps-md-0">
+            <div class="payment-heading mb-4">
+              <h4>Enter Card Details</h4>
+            </div>
+            <div class="accepted-cards my-2">
+              <h6>Accepted Cards</h6>
+              <img
+                src="../../../assets/credit_card.png"
+                width="100%"
+                style="max-height: 3rem"
+                alt=""
+              />
+            </div>
+
+            <div class="Card Number">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Card Number</mat-label>
+                <input
+                  name="cardNumber"
+                  ngModel
+                  matInput
+                  type="text"
+                  placeholder="Debit / Credit Card Number"
+                  (keyup)="onKeyUp($event)"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="name-on-card">
+              <mat-form-field appearance="outline" style="width: 100%">
+                <mat-label>Name On Card</mat-label>
+                <input
+                  name="nameOnCard"
+                  ngModel
+                  matInput
+                  placeholder="Name on Card"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <!-- Expiry Date  -->
+              <div class="col-md-6">
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>Expiry</mat-label>
+                  <input
+                    name="expiry"
+                    ngModel
+                    matInput
+                    placeholder="DD/MM"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <!-- Cvv  -->
+                <mat-form-field appearance="outline" style="width: 100%">
+                  <mat-label>CVV</mat-label>
+                  <input
+                    name="cvv"
+                    ngModel
+                    matInput
+                    type="number"
+                    placeholder="123"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <button
+                  routerLink="/cart"
+                  mat-flat-button
+                  color="primary"
+                  style="color: white; width: 100%"
+                >
+                  <mat-icon>keyboard_backspace</mat-icon> CANCEL
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button
+                  type="submit"
+                  mat-flat-button
+                  color="warn"
+                  style="color: white; width: 100%"
+                  [disabled]="!paymentForm.valid"
+                >
+                  PAY
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
