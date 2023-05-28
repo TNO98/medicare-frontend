@@ -44,16 +44,6 @@ To run the app locally, follow these steps:
 5. Start the development server: `ng serve`
 6. Open your web browser and visit `http://localhost:4200` to access the app.
 
-## Contributing
-
-Contributions to this project are welcome! If you find any issues or would like to add new features, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b my-new-feature`
-3. Make your changes and commit them: `git commit -am 'Add some feature'`
-4. Push the branch: `git push origin my-new-feature`
-5. Submit a pull request explaining your changes.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -64,7 +54,4 @@ We would like to express our gratitude to the following resources and libraries 
 
 - [Angular](https://angular.io/)
 - [Bootstrap](https://getbootstrap.com/)
-- [Firebase](https://firebase.google.com/)
-- [Stripe](https://stripe.com/)
-- [Jasmine](https://jasmine.github.io/)
 - [Git](https://git-scm.com)
