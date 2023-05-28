@@ -3,7 +3,8 @@
 ![App Logo](logo.png)
 
 Welcome to Medicare, an Angular-based medicine ecommerce app! Medicare is designed to provide a seamless and user-friendly experience for customers to browse and purchase medicine online. Leveraging the power of Angular and other cutting-edge technologies, Medicare offers a robust and efficient ecommerce solution.
-To access the live version of the app, visit: [Medicare Live Demo](http://15.207.29.70/)
+- To access the live version of the app, visit: [Medicare Live Demo](http://15.207.29.70/)
+- To access the admin panel use the following credentials : email : malay@gmail.com password : abc123
 
 ## Features
 
